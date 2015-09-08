@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+# This file is part of dnf-urpm
+# Copyright (C) 2015 Neal Gompa
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+import argparse
+from dnf_URPM import urpm_args
+from dnf_URPM import urpmi_args
+from dnf_URPM import dnf_global
+from dnf_URPM import dnf_install
+from dnf_URPM import dnf_api
+
+# Set up argument parser
+parser = argparse.ArgumentParser(description="rpm downloader, installer and dependency solver powered by DNF")
+
+# Declare arguments
+
+# General arguments
+parser = urpm_args.add_general_urpm_args(parser)
+
+# Media selection arguments
+parser = urpm_args.add_mediaselect_urpm_args(parser)
+
+# Operation modes
+parser = urpmi_args.add_opmodes_urpmi_args(parser)
+
+# Package Selection
+parser = urpmi_args.add_pkgselect_urpmi_args(parser)
+
+# Package Processing
+parser = urpmi_args.add_pkgproc_urpmi_args(parser)
+
+# Database Options
+parser = urpm_args.add_dbopts_urpm_args(parser)
+
+# Package Set arguments
+parser = urpm_args.add_package_list_args(parser)
+
+# Parse arguments
+args = parser.parse_args()
+args_array = dnf_global.process(args) + dnf_install.process(args) + dnf_global.get_packages(args)
+
+# Generate and run DNF command
+dnf_api.dnf_action(args_array)
