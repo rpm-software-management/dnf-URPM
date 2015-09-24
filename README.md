@@ -27,3 +27,6 @@ that DNF provides through the urpm* command format that many people prefer.
 * [DNF core plugins documentation](http://dnf-plugins-core.readthedocs.org/en/latest/)
 * [DNF extras plugins documentation](http://dnf-plugins-extras.readthedocs.org/en/latest/)
 
+### URPM information
+
+* urpm* man pages
