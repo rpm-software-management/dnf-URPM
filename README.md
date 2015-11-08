@@ -7,9 +7,7 @@ and dependency resolver with a well-defined and tested CLI and API.
 
 The hope is to implement as much of the functionality of `urpmi`, 
 `urpmi.addmedia`, `urpmi.removemedia`, `urpmi.update`, 
-`urpme`, `urpmq`, `urpmf`, and any other tools in the URPM tool suite
-as possible on top of DNF, and potentially expose extra functionality 
-that DNF provides through the urpm* command format that many people prefer.
+`urpme`, `urpmq`, and `urpmf` as possible on top of DNF.
 
 ## What is working now
 
