@@ -17,7 +17,7 @@
 
 
 def general_dnf_args(args):
-"""Process general arguments and convert to DNF equivalents"""
+    """Process general arguments and convert to DNF equivalents"""
     general_args = []
     if args.force is True:
         general_args.append("--assumeyes")
