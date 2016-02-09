@@ -31,6 +31,8 @@ def general_dnf_args(args):
 
 def mediaselect_dnf_args(args):
     mediaselect_args = []
+    if args.media is not None:
+        mediaselect_args = ["--disablerepo=*",("--enablerepo="+args.media)]
     if args.excludemedia is not None:
         mediaselect_args = [("--disablerepo="+args.excludemedia)]
 
@@ -41,6 +43,8 @@ def dbopts_dnf_args(args):
     dbopts_args = []
     if args.root is not None:
         dbopts_args = [("--installroot="+args.root)]
+    if args.urpmi_root is not None:
+        dbopts_args = [("--installroot="+args.urpmi_root), ("--config="+args.urpmi_root+"/etc/dnf.conf"), ("--setopt=reposdir="+args.urpmi_root+"/etc/distro.repos.d")]
 
     return dbopts_args
 
