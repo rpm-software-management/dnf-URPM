@@ -38,8 +38,6 @@ def dnf_action(action):
     This function will pass actions to DNF,
     provided it exists.
 
-    FIXME: Eventually this will use DNF 
-           Python API instead of the CLI.
     """
 
     if not dnf_exists():
