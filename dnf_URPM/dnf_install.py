@@ -23,12 +23,9 @@ def opmodes_dnf_args(args):
     if args.auto_select is True:
         dnf_action = "upgrade"
         opmodes_args.append("--cacheonly")
-    elif args.auto_update is True:
+    if args.auto_update is True:
         dnf_action = "upgrade"
         opmodes_args.append("--refresh")
-
-    if args.auto_orphans is True:
-        opmodes_args.append("--allowerasing")
 
     return opmodes_args
 

@@ -20,7 +20,7 @@ def add_opmodes_urpmi_args(parser):
     group = parser.add_mutually_exclusive_group()
     group.add_argument("--auto-select", help="Select all packages that can be upgraded, according to already installed packages and packages listed in various registered media.", action="store_true", default=None)
     group.add_argument("--auto-update", help="Like --auto-select, but also updates all relevant media before selection of upgradeable packages is made. This avoids a previous call to \"urpmi.update\".", action="store_true", default=None)
-    parser.add_argument("--auto-orphans", help="Remove all orphans without asking (see also \"urpme --auto-orphans\")", action="store_true", default=None)
+    parser.add_argument("--auto-orphans", help="(Unimplemented) Remove all orphans without asking (see also \"urpme --auto-orphans\")", action="store_true", default=None)
     return parser
 
 
