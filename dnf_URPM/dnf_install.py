@@ -37,6 +37,10 @@ def pkgselect_dnf_args(args):
     global dnf_action
     if args.auto is True:
         pkgselect_args.append("-y")
+    if args.no_recommends is True:
+        pkgselect_args.append("--setopt=install_weak_deps=False")
+    if args.allow_suggests is True:
+        pkgselect_args.append("--setopt=install_weak_deps=True")
     if args.buildrequires is True:
         if dnf_action is None:
             dnf_action = "builddep"
