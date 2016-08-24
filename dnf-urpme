@@ -23,7 +23,7 @@ from dnf_URPM import dnf_remove
 from dnf_URPM import dnf_api
 
 # Set up argument parser
-parser = argparse.ArgumentParser(description="rpm downloader, installer and dependency solver powered by DNF")
+parser = argparse.ArgumentParser(description="rpm deinstaller powered by DNF")
 
 # Declare arguments
 
