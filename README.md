@@ -12,6 +12,7 @@ The hope is to implement as much of the functionality of `urpmi`,
 ## What is working now
 
 * An extremely minimal implementation of `urpmi` exists as `dnf-urpmi`
+* An extremely minimal implementation of `urpme` exists as `dnf-urpme`
 
 ## What is not working now
 
