@@ -43,5 +43,7 @@ def dnf_action(action):
         sys.exit("DNF not detected. Please install DNF!")
 
     command = ["/usr/bin/dnf"] + action
+    command_string = ' '.join(command)
+    print("Redirecting to {0}".format(command_string))
     subprocess.call(command)
 
