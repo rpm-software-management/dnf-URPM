@@ -6,8 +6,7 @@ The dnf-URPM project aims to reimplement the URPM tool suite on top of
 and dependency resolver with a well-defined and tested CLI and API.
 
 The hope is to implement as much of the functionality of `urpmi`, 
-`urpmi.addmedia`, `urpmi.removemedia`, `urpmi.update`, 
-`urpme`, `urpmq`, and `urpmf` as possible on top of DNF.
+`urpmi.update`, `urpme`, `urpmq`, and `urpmf` as possible on top of DNF.
 
 ## What is working now
 
