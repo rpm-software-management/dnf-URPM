@@ -41,7 +41,16 @@ def pkgproc_dnf_args(args):
 
 
 def process(args):
-    dnf_install_args = opmodes_dnf_args(args) + pkgselect_dnf_args(args) + pkgproc_dnf_args(args)    
-    dnf_install_args.append(dnf_action)
+    dnf_remove_args = opmodes_dnf_args(args) + pkgselect_dnf_args(args) + pkgproc_dnf_args(args)
+    dnf_remove_args.append(dnf_action)
 
-    return dnf_install_args
+    if (args.fuzzy is True) and (args.packages is not []):
+        pkgs_fuzzy = []
+        for package in args.packages:
+            if '*' not in package:
+                pkgs_fuzzy.append("*{pkg}*".format(pkg=package))
+            else:
+                pkgs_fuzzy.append(package)
+        args.packages = pkgs_fuzzy
+
+    return dnf_remove_args

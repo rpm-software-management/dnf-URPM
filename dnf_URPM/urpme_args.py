@@ -24,7 +24,7 @@ def add_opmodes_urpme_args(parser):
 def add_pkgselect_urpme_args(parser):
     parser.add_argument("--auto", help="Removes packages non-interactively, without asking questions.", action="store_true", default=None)
     parser.add_argument("--test", help="(Unimplemented) Test deinstallation of packages but do not modify the system.", action="store_true", default=None)
-    parser.add_argument("-a", help="(Unimplemented) If multiple packages match the given substring, deinstall them all.", action="store_true", default=None)
+    parser.add_argument("-a", help="If multiple packages match the given substring, deinstall them all.", action="store_true", default=None)
     return parser
 
 
