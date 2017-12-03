@@ -26,13 +26,13 @@ def add_opmodes_urpmi_args(parser):
 
 def add_pkgselect_urpmi_args(parser):
     parser.add_argument("--auto", help="Install all required dependencies without asking.", action="store_true", default=None)
-    parser.add_argument("-y", "--fuzzy", help="(Unimplemented) Disable fast search on exact package name; that means that urpmi will propose all packages matching part of the name, even if one of them matches exactly the specified name.", action="store_true", default=None)
+    parser.add_argument("-y", "--fuzzy", help="Disable fast search on exact package name; that means that urpmi will propose all packages matching part of the name, even if one of them matches exactly the specified name.", action="store_true", default=None)
     parser.add_argument("--buildrequires", help="Select all the \"BuildRequires\" of the wanted source packages. (You can also install the build dependencies read directly from an rpm spec file.)", action="store_true", default=None)
     parser.add_argument("--install-src", help="(Unimplemented) Install only the source package (that is, no binary packages will be installed). You don't need to be root to use this option (if you have write access to your rpm build top directory).", action="store_true", default=None)
     weakdeps_parser = parser.add_mutually_exclusive_group()
     weakdeps_parser.add_argument("--no-recommends", help="With this option, urpmi will not install \"recommended\" packages. By default, urpmi will install (newly) recommended packages.", action="store_true", default=None)
     weakdeps_parser.add_argument("--allow-recommends", help="With this option, urpmi will install \"recommended\" packages. This is useful if install_weak_deps=False is set in dnf.conf", action="store_true", default=None)
-    parser.add_argument("-a", help="(Unimplemented) If multiple packages match the given substring, install them all.", action="store_true", default=None)
+    parser.add_argument("-a", help="If multiple packages match the given substring, install them all.", dest="fuzzy_all", action="store_true", default=None)
     parser.add_argument("--skip", help="(Unimplemented) You can specify a list of packages which installation should be skipped. You can also include patterns between //.", default=None)
     return parser
 

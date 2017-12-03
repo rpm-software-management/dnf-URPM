@@ -66,12 +66,21 @@ def pkgproc_dnf_args(args):
 def process(args):
     global dnf_action
     dnf_install_args = opmodes_dnf_args(args) + pkgselect_dnf_args(args) + pkgproc_dnf_args(args)
-    
+
+    if ((args.fuzzy_all is True) or (args.fuzzy is True)) and (args.packages is not []):
+        pkgs_fuzzy = []
+        for package in args.packages:
+            if '*' not in package:
+                pkgs_fuzzy.append("*{pkg}*".format(pkg=package))
+            else:
+                pkgs_fuzzy.append(package)
+        args.packages = pkgs_fuzzy
+
     if (dnf_action is None) and (args.packages is not []):
         dnf_action = "install"
 
     if (dnf_action is "install") and (args.packages is []):
         sys.exit("Invalid argument sequence!")
-        
+
     dnf_install_args.append(dnf_action)
     return dnf_install_args
